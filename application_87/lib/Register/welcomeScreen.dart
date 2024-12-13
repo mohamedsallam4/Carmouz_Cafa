@@ -1,6 +1,8 @@
 
 import 'package:application_87/Register/Registeration.dart';
-import 'package:application_87/Register/get_started.dart';
+import 'package:application_87/Register/getstarted.dart';
+
+
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -18,28 +20,9 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.local_cafe_outlined,
-                    color: Colors.white,
-                    size: 80,
-                  ),
+                Expanded(child: Image(image: AssetImage("images/homm.jpg",))),
                   SizedBox(height: 10),
-                  Text(
-                    "Carmouz",
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "Cafe",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      letterSpacing: 1.5,
-                    ),
-                  ),
+               
                 ],
               ),
             ),
@@ -58,16 +41,24 @@ class WelcomeScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Welcome",
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.brown[800],
-                        ),
-                      ),
+                     
                       const SizedBox(height: 8),
-                      Text(
+                     Text(
+                    "CARMOUZ",
+                    style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.brown[800],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "Cafe",
+                    style: TextStyle(fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.brown[600],
+                      letterSpacing: 1.5,
+                    ),
+                  ), const SizedBox(height: 7,), Text(
                         "Welcome to Carmouz",
                         style: TextStyle(
                           fontSize: 16,

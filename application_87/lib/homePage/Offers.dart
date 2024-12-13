@@ -1,72 +1,111 @@
 import 'package:flutter/material.dart';
 
-class Offers extends StatefulWidget {
-  const Offers({super.key});
 
-  @override
-  State<StatefulWidget> createState() => _OffersState();
-}
 
-class _OffersState extends State<Offers> {
-  int item = 0;
-  // ignore: non_constant_identifier_names
-  final Offers = [
 
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-    
+class Offers extends StatelessWidget {
+
+  final List<Offer> offers = [
+    Offer(
+      title: "عرض 1",
+      items: [
+        OfferItem(name: "عنصر 1", price: 30),
+        OfferItem(name: "عنصر 2", price: 50),
+        OfferItem(name: "عنصر 3", price: 20),
+      ],
+    ),
+    Offer(
+      title: "عرض 2",
+      items: [
+        OfferItem(name: "عنصر A", price: 40),
+        OfferItem(name: "عنصر B", price: 60),
+      ],
+    ),
+    Offer(
+      title: "عرض 3",
+      items: [
+        OfferItem(name: "عنصر X", price: 10),
+        OfferItem(name: "عنصر Y", price: 80),
+        OfferItem(name: "عنصر Z", price: 30),
+      ],
+    ),
   ];
+
+   Offers({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-          padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-        child: ListView(
-          children: [const SizedBox(height: 12,),
-      
-      Text(
-                'Offers and Gifts',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.brown[800],
-                ),
-              ),const SizedBox(height: 13,),
-           
-             GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
-                  crossAxisCount: 2,
-                ),
-                itemCount: Offers.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(Offers[index]), fit: BoxFit.cover),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Offers",
-                        style: TextStyle(fontSize: 18, color: Colors.teal[800]),
+      // appBar: AppBar(
+      //   title: Text("العروض"),
+      // ),
+      body: ListView.builder(
+        itemCount: offers.length,
+        itemBuilder: (context, index) {
+          final offer = offers[index];
+          final totalPrice = offer.items.fold(0, (sum, item) => sum + item.price);
+
+          return Card(
+            margin: EdgeInsets.all(16.0),
+            elevation: 4.0,
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    offer.title,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10),
+                  Column(
+                    children: offer.items.map((item) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(item.name),
+                          Text("${item.price} جنيه"),
+                        ],
+                      );
+                    }).toList(),
+                  ),
+                  SizedBox(height: 10),
+                  Divider(),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "السعر النهائي",
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                    ),
-                  );
-                  
-                },
+                      Text(
+                        "${totalPrice} جنيه",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-        
-          ],
-        ),
+            ),
+          );
+        },
       ),
     );
   }
+}
+
+class Offer {
+  
+  final String title;
+  final List<OfferItem> items;
+
+  Offer({required this.title, required this.items});
+}
+
+class OfferItem {
+  final String name;
+  final int price;
+
+  OfferItem({required this.name, required this.price});
 }

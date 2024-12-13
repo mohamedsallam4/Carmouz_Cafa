@@ -9,21 +9,24 @@ class Drinks extends StatefulWidget {
 
 class _DrinksState extends State<Drinks> {
   List images = [
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
-    "images/Coffee Supplier Presentation.jpg",
+   "images/coffe1.jpg",
+   "images/coffe2.jpg",
+   "images/coffe3.jpg",
+   "images/coffe4.jpg",
+   "images/coffe5.jpg",
+   "images/coffe6.jpg",
+   "images/drink1.jpg",
+   "images/drink2.jpg",
+   "images/drink3.jpg",   "images/coffe1.jpg",
+   "images/coffe2.jpg",
+   "images/coffe3.jpg",
+   "images/coffe4.jpg",
+   "images/coffe5.jpg",
+   "images/coffe6.jpg",
+   "images/drink1.jpg",
+   "images/drink2.jpg",
+   "images/drink3.jpg",
+
   ];
   List items = [
     "caffee ",
@@ -34,10 +37,16 @@ class _DrinksState extends State<Drinks> {
     "coffee mix",
     "coffee mix",
     "coffee mix",
+    "coffee mix",  "caffee ",
     "coffee mix",
     "coffee mix",
     "coffee mix",
     "coffee mix",
+    "coffee mix",
+    "coffee mix",
+    "coffee mix",
+    "coffee mix",
+  
   ];
   @override
   Widget build(BuildContext context) {
@@ -51,7 +60,7 @@ class _DrinksState extends State<Drinks> {
               width: double.infinity,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('images/Coffee Supplier Presentation.jpg'),
+                  image: AssetImage('images/homepage.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -89,7 +98,7 @@ class _DrinksState extends State<Drinks> {
               ),
             ),
             const SizedBox(height: 20),
-        
+
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
@@ -115,8 +124,8 @@ class _DrinksState extends State<Drinks> {
               itemBuilder: (context, index) {
                 return Container(
                   decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage(images[index])
-                 ,   fit: BoxFit.cover),
+                    image: DecorationImage(
+                        image: AssetImage(images[index]), fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Center(
@@ -130,7 +139,7 @@ class _DrinksState extends State<Drinks> {
             ),
 
             const SizedBox(height: 20),
-          
+
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(

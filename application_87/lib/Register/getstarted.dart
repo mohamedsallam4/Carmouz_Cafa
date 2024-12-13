@@ -1,29 +1,34 @@
-
-
-
-
-import 'package:application_87/homePage/Drawer.dart';
 import 'package:application_87/homePage/Drinks.dart';
 import 'package:application_87/homePage/Offers.dart';
-import 'package:application_87/homePage/Personal_Acc.dart';
 import 'package:application_87/homePage/cakes.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Getstarted extends StatefulWidget {
+  const Getstarted({super.key});
 
   @override
-  State<StatefulWidget> createState() => _HomePageState();
+  State<StatefulWidget> createState() => _GetstartedState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _GetstartedState extends State<Getstarted> {
+
+  @override
+  void initState() {
+    super.initState();
+    _loadProducts();
+  }
+
+  Future<void> _loadProducts() async {
+    setState(() {
+    });
+  }
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [
+  final List<Widget> screens = [
     const Center(child: Drinks()),
     const Center(child: Cakes()),
-   Center(child: Offers()),
-    const Center(child: PersonalAccountPage()),
+ Center(child: Offers()),
+
   ];
   List items = [
     "caffee ",
@@ -69,13 +74,15 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.wallet_giftcard),
               label: 'Offers',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Account',
-            ),
+          
           ],
         ),
-        drawer: const drawerr(),
-        body: _screens[_selectedIndex]);
+    
+        body: 
+        
+    screens[_selectedIndex]
+ 
+        
+        );
   }
 }

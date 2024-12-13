@@ -11,14 +11,23 @@ class _CakeState extends State<Cakes> {
   int item = 0;
   // ignore: non_constant_identifier_names
   final Cakes = [
-
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
-"images/Coffee Supplier Presentation.jpg",
+"images/cake1.jpg",
+"images/cake2.jpg",
+"images/cake3.jpg",
+"images/cake4.jpg",
+"images/cake1.jpg",
+"images/cake2.jpg",
+"images/cake3.jpg",
+"images/cake3.jpg",
+"images/cake4.jpg",
+"images/cake1.jpg",
+"images/cake1.jpg",
+"images/cake2.jpg",
+"images/cake4.jpg",
+"images/cake3.jpg",
+"images/cake4.jpg",
+"images/cake2.jpg",
+"images/cake1.jpg",
     
   ];
   @override
