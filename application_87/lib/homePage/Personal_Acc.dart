@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io'; // لاستخدام ملف الصورة
+import 'dart:io';
 
 class PersonalAccountPage extends StatefulWidget {
   const PersonalAccountPage({super.key});
@@ -14,12 +14,12 @@ class _PersonalAccountPageState extends State<PersonalAccountPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  File? _profileImage; // لتخزين الصورة المختارة
+  File? _profileImage;
 
   @override
   void initState() {
     super.initState();
-    // بيانات افتراضية
+ 
     _nameController.text = "John Doe";
     _emailController.text = "john.doe@example.com";
     _phoneController.text = "+201234567890";
@@ -27,7 +27,7 @@ class _PersonalAccountPageState extends State<PersonalAccountPage> {
 
   Future<void> _pickImage() async {
     final picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery); // تغيير المصدر إلى الكاميرا إذا أردت
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery); 
 
     if (pickedFile != null) {
       setState(() {
@@ -45,12 +45,12 @@ class _PersonalAccountPageState extends State<PersonalAccountPage> {
         child: ListView(
           children: [
             GestureDetector(
-              onTap: _pickImage, // عند الضغط على الصورة
+              onTap: _pickImage, 
               child: CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.brown[200],
                 backgroundImage: _profileImage != null
-                    ? FileImage(_profileImage!) // عرض الصورة المختارة
+                    ? FileImage(_profileImage!)
                     : null,
                 child: _profileImage == null
                     ? const Icon(Icons.person, size: 60, color: Colors.white)

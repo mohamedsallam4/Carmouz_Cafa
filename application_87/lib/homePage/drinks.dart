@@ -78,7 +78,7 @@ class _DrinksState extends State<Drinks> {
               ),
             ),
             const SizedBox(height: 20),
-            // Introduction
+           
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
