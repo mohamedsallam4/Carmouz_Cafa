@@ -1,7 +1,6 @@
-
-import 'package:application_87/Register/Registeration.dart';
 import 'package:application_87/Register/getstarted.dart';
-
+import 'package:application_87/Register/signin.dart';
+import 'package:application_87/Register/signup.dart';
 
 import 'package:flutter/material.dart';
 
@@ -20,9 +19,12 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                Expanded(child: Image(image: AssetImage("images/homm.jpg",))),
+                  Expanded(
+                      child: Image(
+                          image: AssetImage(
+                    "images/homm.jpg",
+                  ))),
                   SizedBox(height: 10),
-               
                 ],
               ),
             ),
@@ -41,24 +43,28 @@ class WelcomeScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                     
                       const SizedBox(height: 8),
-                     Text(
-                    "CARMOUZ",
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: Colors.brown[800],
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "Cafe",
-                    style: TextStyle(fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Colors.brown[600],
-                      letterSpacing: 1.5,
-                    ),
-                  ), const SizedBox(height: 7,), Text(
+                      Text(
+                        "CARMOUZ",
+                        style: TextStyle(
+                          fontSize: 32,
+                          color: Colors.brown[800],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "Cafe",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.brown[600],
+                          letterSpacing: 1.5,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 7,
+                      ),
+                      Text(
                         "Welcome to Carmouz",
                         style: TextStyle(
                           fontSize: 16,
@@ -80,7 +86,7 @@ class WelcomeScreen extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>  const Getstarted(),
+                                builder: (context) => const Getstarted(),
                               ));
                         },
                         child: const Row(
@@ -107,20 +113,19 @@ class WelcomeScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          _buildTextButton(
-                              context, "Login", Colors.white, () {
-                                       Navigator.push(
+                          _buildTextButton(context, "Login", Colors.white, () {
+                            Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const SignInPage(),
+                                  builder: (context) => LoginScreen(),
                                 ));
-                              }),
+                          }),
                           _buildTextButton(context, "Register", Colors.white,
                               () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const SignUP(),
+                                  builder: (context) => SignUpScreen(),
                                 ));
                           }),
                         ],
@@ -157,5 +162,3 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 }
-
-

@@ -1,6 +1,8 @@
-
-import 'package:application_87/Register/welcomeScreen.dart';
+import 'package:application_87/homePage/drawdetails.dart';
 import 'package:flutter/material.dart';
+import 'package:application_87/Register/welcomeScreen.dart';
+
+// drawwwwwwwwwwwwwwwwwwwwwwwwwwwer
 // ignore: camel_case_types
 class drawerr extends StatelessWidget {
   const drawerr({super.key});
@@ -8,6 +10,7 @@ class drawerr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      // فكرني ب السيف ارياا واي الفرق بينها وبين الاسكافولد ؟؟؟؟؟
       child: Container(
         width: 225,
         height: double.infinity,
@@ -31,9 +34,14 @@ class drawerr extends StatelessWidget {
             const SizedBox(height: 14),
             const Center(
               child: ListTile(
+
+                
                 title: Text(
                   "KARMOUZ Cafe",
-                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
                 subtitle: Text(
                   "الإتقان عنواننا",
@@ -46,14 +54,61 @@ class drawerr extends StatelessWidget {
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
-                  Buttton("Settings", Icons.settings, () {}),
-                  Divider(color: Colors.white.withOpacity(0.3), thickness: 1, indent: 15, endIndent: 15),
-                  Buttton("Staff and evaluation", Icons.sentiment_very_satisfied_sharp, () {}),
-                  Divider(color: Colors.white.withOpacity(0.3), thickness: 1, indent: 15, endIndent: 15),
-                  Buttton("Wallet", Icons.account_balance_wallet, () {}),
-                  Divider(color: Colors.white.withOpacity(0.3), thickness: 1, indent: 15, endIndent: 15),
-                  Buttton("About Us", Icons.help_outline, () {}),
-                  Divider(color: Colors.white.withOpacity(0.3), thickness: 1, indent: 15, endIndent: 15),
+                  Buttton("Settings", Icons.settings, () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SettingsDetails(),
+                      ),
+                    );
+                  }),
+                  Divider(
+                    // بيعمل اي ال divider ??????????
+                    // هل المسافه او الخط الفاصل 
+
+                      color: Colors.white.withOpacity(0.3),
+                      thickness: 1,
+                      indent: 15,
+                      endIndent: 15),
+                  Buttton("Staff", Icons.sentiment_very_satisfied_sharp, () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => StaffDetails(),
+                      ),
+                    );
+                  }),
+                  Divider(
+                      color: Colors.white.withOpacity(0.3),
+                      thickness: 1,
+                      indent: 15,
+                      endIndent: 15),
+                  Buttton("Wallet", Icons.account_balance_wallet, () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WalletDetails(),
+                      ),
+                    );
+                  }),
+                  Divider(
+                      color: Colors.white.withOpacity(0.3),
+                      thickness: 1,
+                      indent: 15,
+                      endIndent: 15),
+                  Buttton("About Us", Icons.help_outline, () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AboutUsDetails(),
+                      ),
+                    );
+                  }),
+                  Divider(
+                      color: Colors.white.withOpacity(0.3),
+                      thickness: 1,
+                      indent: 15,
+                      endIndent: 15),
                   Buttton("Log out", Icons.logout, () {
                     Navigator.push(
                       context,
@@ -71,6 +126,8 @@ class drawerr extends StatelessWidget {
     );
   }
 }
+
+// ignore: non_constant_identifier_names
 Widget Buttton(String text, IconData icon, VoidCallback onPressed) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -78,6 +135,7 @@ Widget Buttton(String text, IconData icon, VoidCallback onPressed) {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         TextButton.icon(
+          
           style: ButtonStyle(
             overlayColor: MaterialStateProperty.all(Colors.transparent),
             foregroundColor: MaterialStateProperty.all(

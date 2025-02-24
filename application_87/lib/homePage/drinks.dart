@@ -9,45 +9,47 @@ class Drinks extends StatefulWidget {
 
 class _DrinksState extends State<Drinks> {
   List images = [
-   "images/coffe1.jpg",
-   "images/coffe2.jpg",
-   "images/coffe3.jpg",
-   "images/coffe4.jpg",
-   "images/coffe5.jpg",
-   "images/coffe6.jpg",
-   "images/drink1.jpg",
-   "images/drink2.jpg",
-   "images/drink3.jpg",   "images/coffe1.jpg",
-   "images/coffe2.jpg",
-   "images/coffe3.jpg",
-   "images/coffe4.jpg",
-   "images/coffe5.jpg",
-   "images/coffe6.jpg",
-   "images/drink1.jpg",
-   "images/drink2.jpg",
-   "images/drink3.jpg",
+    "images/coffe1.jpg",
+    "images/coffe2.jpg",
+    "images/coffe3.jpg",
+    "images/coffe4.jpg",
+    "images/coffe5.jpg",
+    "images/coffe6.jpg",
+    "images/drink1.jpg",
+    "images/drink2.jpg",
+    "images/drink3.jpg",
+    "images/coffe1.jpg",
+    "images/coffe2.jpg",
+    "images/coffe3.jpg",
+    "images/coffe4.jpg",
+    "images/coffe5.jpg",
+    "images/coffe6.jpg",
+    "images/drink1.jpg",
+    "images/drink2.jpg",
+    "images/drink3.jpg",
+  ];
 
-  ];
   List items = [
-    "caffee ",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",  "caffee ",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-    "coffee mix",
-  
+    "Caffee",
+    "Coffee mix",
+    "Espresso",
+    "Latte",
+    "Cappuccino",
+    "Macchiato",
+    "Mocha",
+    "Hot Chocolate",
+    "Tea",
+    "Caffee",
+    "Coffee mix",
+    "Espresso",
+    "Latte",
+    "Cappuccino",
+    "Macchiato",
+    "Mocha",
+    "Hot Chocolate",
+    "Tea",
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +80,6 @@ class _DrinksState extends State<Drinks> {
               ),
             ),
             const SizedBox(height: 20),
-           
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
@@ -98,7 +99,6 @@ class _DrinksState extends State<Drinks> {
               ),
             ),
             const SizedBox(height: 20),
-
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
@@ -110,7 +110,6 @@ class _DrinksState extends State<Drinks> {
                 ),
               ),
             ),
-
             GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -122,24 +121,40 @@ class _DrinksState extends State<Drinks> {
               itemCount: items.length,
               padding: const EdgeInsets.all(10),
               itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(images[index]), fit: BoxFit.cover),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Center(
-                    child: Text(
-                      items[index],
-                      style: TextStyle(fontSize: 18, color: Colors.teal[800]),
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsPage(
+                          image: images[index],
+                          title: items[index],
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(images[index]),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Center(
+                      child: Text(
+                        items[index],
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.teal[800],
+                        ),
+                      ),
                     ),
                   ),
                 );
               },
             ),
-
             const SizedBox(height: 20),
-
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
@@ -176,6 +191,51 @@ class _DrinksState extends State<Drinks> {
           ],
         ),
       ]),
+    );
+  }
+}
+
+class DetailsPage extends StatelessWidget {
+  final String image;
+  final String title;
+
+  const DetailsPage({Key? key, required this.image, required this.title})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+        backgroundColor: Colors.brown[800],
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 300,
+            width: double.infinity,
+            child: Image.asset(image, fit: BoxFit.cover),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.brown[800],
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              'This is the detailed description of the selected item. Enjoy your drink!',
+              style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

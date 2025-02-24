@@ -1,10 +1,7 @@
-
-
-
-
 import 'package:application_87/homePage/Drawer.dart';
 import 'package:application_87/homePage/Drinks.dart';
 import 'package:application_87/homePage/Offers.dart';
+//import 'package:application_87/homePage/Order.dart';
 import 'package:application_87/homePage/Personal_Acc.dart';
 import 'package:application_87/homePage/cakes.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +19,9 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _screens = [
     const Center(child: Drinks()),
     const Center(child: Cakes()),
-   Center(child: Offers()),
+    Center(child: Offers()),
     const Center(child: PersonalAccountPage()),
+  //  const Center(child: Order()),
   ];
   List items = [
     "caffee ",
@@ -72,6 +70,10 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Account',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Order',
             ),
           ],
         ),

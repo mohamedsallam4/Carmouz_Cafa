@@ -19,7 +19,7 @@ class _PersonalAccountPageState extends State<PersonalAccountPage> {
   @override
   void initState() {
     super.initState();
- 
+
     _nameController.text = "John Doe";
     _emailController.text = "john.doe@example.com";
     _phoneController.text = "+201234567890";
@@ -27,7 +27,7 @@ class _PersonalAccountPageState extends State<PersonalAccountPage> {
 
   Future<void> _pickImage() async {
     final picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery); 
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
       setState(() {
@@ -39,19 +39,17 @@ class _PersonalAccountPageState extends State<PersonalAccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
             GestureDetector(
-              onTap: _pickImage, 
+              onTap: _pickImage,
               child: CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.brown[200],
-                backgroundImage: _profileImage != null
-                    ? FileImage(_profileImage!)
-                    : null,
+                backgroundImage:
+                    _profileImage != null ? FileImage(_profileImage!) : null,
                 child: _profileImage == null
                     ? const Icon(Icons.person, size: 60, color: Colors.white)
                     : null,
